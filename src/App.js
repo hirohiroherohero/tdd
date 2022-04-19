@@ -1,24 +1,18 @@
-import logo from './logo.svg';
-import './App.css';
+import {useState} from 'react'
 
 function App() {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const toggleDoor = () => setIsOpen(prev => !prev);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+    {
+      isOpen?     <h1>열린문</h1> :     <h1>닫힌문</h1>
+    }
+
+      <button onClick={toggleDoor}>열려라</button>
+    </>
+
   );
 }
 

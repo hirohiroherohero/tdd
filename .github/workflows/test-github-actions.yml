@@ -8,6 +8,6 @@ jobs:
     steps:
       - name: My First Step
         run: 
-          npm install
-          npm fund
+          echo "테스트 시작!"
           npm test
+          echo "테스트 완료!"

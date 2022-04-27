@@ -1,0 +1,12 @@
+name: learn-github-action
+on: 
+  push:
+    branches: [main]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: My First Step
+        run: 
+          npm install
+          npm test

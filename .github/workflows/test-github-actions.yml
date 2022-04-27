@@ -9,4 +9,5 @@ jobs:
       - name: My First Step
         run: 
           npm install
+          npm fund
           npm test

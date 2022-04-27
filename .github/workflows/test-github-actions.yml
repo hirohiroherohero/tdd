@@ -8,17 +8,17 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - name: Cache node modules
-        # 그걸 제공하는 Action도 있네요? 갖다 쓰겠습니다.
+      - name: Cache node modules # node_modules 가 변했는지 확인
         uses: actions/cache@v2
-        # 해당 step을 대표하는 id를 설정할 수도 있어요.
-        # 해당 값은 뒤의 step에서 사용해볼게요.
         id: cache
         with:
-          # node_modules라는 폴더를 검사하여
           path: node_modules
-          # 아래 키값으로 cache가 돼있는지 확인합니다.
           key: npm-packages-${{ hashFiles('**/package-lock.json') }}
-      - name: Test    # 의존 파일 설치
+
+      - name: Install Dependencies # 변했으면 npm install
+        if: steps.cache.outputs.cache-hit != 'true'
+        run: npm install
+
+      - name: Test # 테스트
         run: npm run test a
   

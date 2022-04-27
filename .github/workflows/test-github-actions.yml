@@ -6,7 +6,10 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: My First Step
+      - name: npm install
         run: 
-          npm install,
-          npm test a
+          npm install
+      - name: npm test
+        run: 
+          npm test
+  

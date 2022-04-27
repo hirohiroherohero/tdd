@@ -1,15 +1,14 @@
 name: learn-github-action
 on: 
   push:
-    branches: [main]
+    branches: main
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: npm install
-        run: 
-          npm install
-      - name: npm test
-        run: 
-          npm test
+      - name: Install Dependencies    # 의존 파일 설치
+        run: npm install
+
+      - name: Test
+        run: npm run test
   

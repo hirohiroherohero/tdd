@@ -8,6 +8,4 @@ jobs:
     steps:
       - name: My First Step
         run: 
-          echo "테스트 시작!"
-          npm test
-          echo "테스트 완료!"
+          npm test a
